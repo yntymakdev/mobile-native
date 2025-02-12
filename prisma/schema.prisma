@@ -36,7 +36,7 @@ model Product {
   slug String
   price Int
   image String
-
+categories Category[]
   @@map("product")
 }
 
