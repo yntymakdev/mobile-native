@@ -27,3 +27,7 @@ phone String @default("")
 
 
 
+model Product {
+  
+}
+
