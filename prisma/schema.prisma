@@ -22,7 +22,7 @@ avatarPath String @default("/uploads/default-avatar.png") @map("avatar_path")
 phone String @default("")
 @@map("user")
 
-order Order[]
+orders Order[]
 }
 
 
@@ -59,6 +59,7 @@ model Order{
   updateAt DateTime @updatedAt
   reference String @unique
   user User? @relation(fields: [userId], references: [id])
+  userId String
 
   @@map("order")
 }
