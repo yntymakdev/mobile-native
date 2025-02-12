@@ -36,12 +36,11 @@ model Product {
   slug String
   price Int
   image String
-categories Category[]
   @@map("product")
 }
 
 model Category{
-
+products Product[]
   id String @id @default(cuid())
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt @map("updated_at")
