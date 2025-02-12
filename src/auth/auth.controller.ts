@@ -24,15 +24,14 @@ export class AuthController {
   @UsePipes(new ValidationPipe())
   @HttpCode(200)
   @Post('login')
-  async login(@Body() dto: RefreshTokenDto) {
+  async login(@Body() dto: AuthDto) {
     return this.authService.login(dto);
   }
-
   @UsePipes(new ValidationPipe())
   @HttpCode(200)
   @Post('login/access-token')
-  async getNewTokens(@Body() dto: AuthDto) {
-    return this.authService.getNewTokens(dto);
+  async getNewTokens(@Body() dto: RefreshTokenDto) {
+    return this.authService.getNewTokens(dto.refreshToken);
   }
 }
 
