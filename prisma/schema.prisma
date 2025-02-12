@@ -22,6 +22,7 @@ avatarPath String @default("/uploads/default-avatar.png") @map("avatar_path")
 phone String @default("")
 @@map("user")
 
+orders Order[]
 }
 
 
@@ -35,12 +36,11 @@ model Product {
   slug String
   price Int
   image String
-
   @@map("product")
 }
 
 model Category{
-
+products Product[]
   id String @id @default(cuid())
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt @map("updated_at")
@@ -49,3 +49,16 @@ model Category{
 }
 
 
+
+
+model Order{
+
+  id String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+  reference String @unique
+  user User? @relation(fields: [userId], references: [id])
+  userId String
+
+  @@map("order")
+}
