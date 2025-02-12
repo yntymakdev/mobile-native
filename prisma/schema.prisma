@@ -22,6 +22,7 @@ avatarPath String @default("/uploads/default-avatar.png") @map("avatar_path")
 phone String @default("")
 @@map("user")
 
+order Order[]
 }
 
 
@@ -54,5 +55,10 @@ model Category{
 model Order{
 
   id String   @id @default(cuid())
-  createdAt 
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+  reference String @unique
+  user User? @relation(fields: [userId], references: [id])
+
+  @@map("order")
 }
