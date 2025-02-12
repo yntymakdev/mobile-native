@@ -49,3 +49,10 @@ model Category{
 }
 
 
+
+
+model Order{
+
+  id String   @id @default(cuid())
+  createdAt 
+}
