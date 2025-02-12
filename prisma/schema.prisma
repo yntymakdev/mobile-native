@@ -30,6 +30,6 @@ phone String @default("")
 model Product {
   id String @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
-  updateAt DateTime @updatedAt @map("")
+  updateAt DateTime @updatedAt @map("updated_at")
 }
 
