@@ -28,6 +28,7 @@ phone String @default("")
 
 
 model Product {
-  
+  id String @id @default(cuid())
+  createdAt DateTime @default(now()) @map("cre")
 }
 
